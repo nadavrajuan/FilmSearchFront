@@ -1,0 +1,18 @@
+.movieSearch {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vw;
+}
+
+.movieSearch h1 {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(285.36deg, #f89b29 0%, #ff0f7b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}
