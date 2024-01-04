@@ -5,14 +5,16 @@ import MovieList from "../components/MovieList";
 import "./movieSearch.css";
 import MovieTextArea from "../../shared/components/elements/MovieTextArea";
 import MovieButton from "../../shared/components/elements/MovieButton";
+import { Loading } from "../../shared/components/elements/Loading";
 
 const MovieSearch = () => {
   const [movies, setMovies] = useState([]);
-  const [collapsed, setCollapsed] = useState(false)
-//   const mainUrl = "https://movies-idnxr.ondigitalocean.app";
-//   const apiUrl = "/api/closest_movies";
-//   const token =
-//     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE3MDQzNjIzODF9.aEVnYnfTy7Qn0ZyBEXAJW5ArSW83X2j7gMOnoi2sWKw";
+  const [collapsed, setCollapsed] = useState(false);
+  const [loading, setLoading] = useState(false);
+  //   const mainUrl = "https://movies-idnxr.ondigitalocean.app";
+  //   const apiUrl = "/api/closest_movies";
+  //   const token =
+  //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE3MDQzNjIzODF9.aEVnYnfTy7Qn0ZyBEXAJW5ArSW83X2j7gMOnoi2sWKw";
   const {
     register,
     handleSubmit,
@@ -24,9 +26,14 @@ const MovieSearch = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
-    setCollapsed(true)
-    setMovies(dummy_response.movies);
-    reset()
+    setLoading(true);
+    setCollapsed(true);
+    setTimeout(() => {
+      setLoading(false);
+      setMovies(dummy_response.movies);
+    }, 30000);
+
+    reset();
     // try {
     //   const response = await fetch(
     //     `${mainUrl}${apiUrl}?text=${encodeURIComponent(data.text)}`,
@@ -46,7 +53,7 @@ const MovieSearch = () => {
     //   console.error("Returned with error: ", error);
     // }
   };
-
+  
   return (
     <div className="movieSearch">
       <h1>Reference Films Finder</h1>
@@ -63,7 +70,7 @@ const MovieSearch = () => {
               errors={errors}
               placeholder={"Search for a film"}
               collapsed={collapsed}
-              onFocus={()=> setCollapsed(false)}
+              onFocus={() => setCollapsed(false)}
             />
             <MovieButton type="submit" disabled={!isValid}>
               FIND
@@ -71,10 +78,8 @@ const MovieSearch = () => {
           </div>
         </form>
       </div>
-      <div
-        className="movieResult"
-      >
-        <MovieList movies={movies} />
+      <div className="movieResult" >
+        { loading? <Loading /> : <MovieList movies={movies} /> }
       </div>
     </div>
   );
