@@ -1,5 +1,13 @@
-const MovieButton = () => {
-    return 'MovieTextArea';
-}
+import "./movieButton.css";
 
-export default MovieButton
+const MovieButton = (props) => {
+  return (
+    <button class="button">
+      <div class="button__int">
+        <span class="button__span">{props.children}</span>
+      </div>
+    </button>
+  );
+};
+
+export default MovieButton;
