@@ -28,7 +28,6 @@ const MovieItem = ({ title, overview }) => {
     const variants = ['1', '2', '3', '4'];
     const randomVariant = variants[Math.floor(Math.random() * variants.length)];
     setTransformVariant(randomVariant);
-    console.log(randomVariant);
   }, []);
 
   const contentClass = classNames({
