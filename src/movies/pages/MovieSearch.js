@@ -8,10 +8,10 @@ import MovieButton from "../../shared/components/elements/MovieButton";
 
 const MovieSearch = () => {
   const [movies, setMovies] = useState([]);
-  const mainUrl = "https://movies-idnxr.ondigitalocean.app";
-  const apiUrl = "/api/closest_movies";
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE3MDQzNjIzODF9.aEVnYnfTy7Qn0ZyBEXAJW5ArSW83X2j7gMOnoi2sWKw";
+//   const mainUrl = "https://movies-idnxr.ondigitalocean.app";
+//   const apiUrl = "/api/closest_movies";
+//   const token =
+//     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE3MDQzNjIzODF9.aEVnYnfTy7Qn0ZyBEXAJW5ArSW83X2j7gMOnoi2sWKw";
   const {
     register,
     handleSubmit,
@@ -67,7 +67,7 @@ const MovieSearch = () => {
       </div>
       <div
         className="movieResult"
-        style={{ width: "100%", border: "4px solid green" }}
+        style={{ width: "100%" }}
       >
         <MovieList movies={movies} />
       </div>
