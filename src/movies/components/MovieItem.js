@@ -56,7 +56,7 @@ const MovieItem = ({ title, overview }) => {
         <div className={`content ${contentClass}`} >
           <p className="heading">{title}</p>
           <p>
-            {overview.length > 200 ? overview.substring(0, 200) + '...' : overview}
+            {overview.length > 180 ? overview.substring(0, 180) + '...' : overview}
           </p>
         </div>
       </div>
