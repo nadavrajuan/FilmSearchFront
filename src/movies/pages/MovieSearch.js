@@ -67,7 +67,6 @@ const MovieSearch = () => {
       </div>
       <div
         className="movieResult"
-        style={{ width: "100%" }}
       >
         <MovieList movies={movies} />
       </div>

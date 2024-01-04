@@ -9,7 +9,7 @@ const MovieItem = ({ title, overview }) => {
         <div className="content">
           <p className="heading">{title}</p>
           <p>
-           {overview}
+           {overview.length> 200 ? overview.substring(0, 200) + '...' : overview}
           </p>
         </div>
       </div>

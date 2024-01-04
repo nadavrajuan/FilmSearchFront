@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 7em;
+  gap: 5em;
   align-items: center;
-  padding: 2em
+  padding: 1em 2em
 }
 
 .movieSearch h1 {
@@ -21,6 +21,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3em;
+  gap: 2em;
   align-items: center;
+}
+
+.movieResult {
+  width: 100%
 }
