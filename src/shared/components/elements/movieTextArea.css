@@ -33,7 +33,16 @@
   color: #949494;
   outline: 0;
   overflow: hidden;
+  transition: height 0.3s ease-in-out;
   /* resize: none;  */
+}
+
+.normal {
+  height: 195px;
+}
+
+.reduced {
+  height: 25px;
 }
 
 .box-input::after,

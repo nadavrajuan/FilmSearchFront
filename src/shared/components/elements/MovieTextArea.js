@@ -1,4 +1,5 @@
 import "./movieTextArea.css";
+import classNames from "classnames";
 
 const MovieTextArea = ({
   label,
@@ -6,15 +7,19 @@ const MovieTextArea = ({
   register,
   validation,
   errors,
-  maxRows,
-  minRows,
   placeholder,
+  collapsed,
+  onFocus
 }) => {
   return (
     <div className="box-input">
       <div className="border">
         <textarea
-          className="input"
+          className={classNames("input", {
+            normal: !collapsed,
+            reduced: collapsed,
+          })}
+          onFocus={onFocus}
           name={name}
           label={label}
           placeholder={placeholder}

@@ -8,6 +8,7 @@ import MovieButton from "../../shared/components/elements/MovieButton";
 
 const MovieSearch = () => {
   const [movies, setMovies] = useState([]);
+  const [collapsed, setCollapsed] = useState(false)
 //   const mainUrl = "https://movies-idnxr.ondigitalocean.app";
 //   const apiUrl = "/api/closest_movies";
 //   const token =
@@ -15,6 +16,7 @@ const MovieSearch = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isValid },
   } = useForm({
     mode: "onBlur",
@@ -22,7 +24,9 @@ const MovieSearch = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
+    setCollapsed(true)
     setMovies(dummy_response.movies);
+    reset()
     // try {
     //   const response = await fetch(
     //     `${mainUrl}${apiUrl}?text=${encodeURIComponent(data.text)}`,
@@ -58,6 +62,8 @@ const MovieSearch = () => {
               register={register}
               errors={errors}
               placeholder={"Search for a film"}
+              collapsed={collapsed}
+              onFocus={()=> setCollapsed(false)}
             />
             <MovieButton type="submit" disabled={!isValid}>
               FIND
