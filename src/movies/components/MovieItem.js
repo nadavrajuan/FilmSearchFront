@@ -49,7 +49,7 @@ const MovieItem = ({ title, overview }) => {
   return (
     <div className="card-container" >
       <div className="card">
-        <div className={`front-content ${frontContentClass}`} >
+        <div className={`front-content ${frontContentClass}`} style={{ padding: '10px'}}>
           <p>{title}</p>
         </div>
         <div className={`content ${contentClass}`} >
