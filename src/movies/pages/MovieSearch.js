@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { dummy_response } from "./dummy_response";
 import MovieList from "../components/MovieList";
 import "./movieSearch.css";
+import classNames from "classnames";
 import MovieTextArea from "../../shared/components/elements/MovieTextArea";
 import MovieButton from "../../shared/components/elements/MovieButton";
 import { Loading } from "../../shared/components/elements/Loading";
@@ -31,9 +32,10 @@ const MovieSearch = () => {
     setTimeout(() => {
       setLoading(false);
       setMovies(dummy_response.movies);
-    }, 30000);
+    }, 1000);
 
     reset();
+    // WILL BE USED LATER after solving cors error:
     // try {
     //   const response = await fetch(
     //     `${mainUrl}${apiUrl}?text=${encodeURIComponent(data.text)}`,
@@ -53,13 +55,18 @@ const MovieSearch = () => {
     //   console.error("Returned with error: ", error);
     // }
   };
-  
+
   return (
     <div className="movieSearch">
       <h1>Reference Films Finder</h1>
       <div className="movieSearchPanel">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="movieSearchForm">
+          <div
+            className={classNames("movieSearchForm", {
+              col: !collapsed,
+              row: collapsed,
+            })}
+          >
             <MovieTextArea
               label="text"
               name="text"
@@ -78,8 +85,8 @@ const MovieSearch = () => {
           </div>
         </form>
       </div>
-      <div className="movieResult" >
-        { loading? <Loading /> : <MovieList movies={movies} /> }
+      <div className="movieResult">
+        {loading ? <Loading /> : <MovieList movies={movies} />}
       </div>
     </div>
   );

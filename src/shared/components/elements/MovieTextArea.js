@@ -12,7 +12,7 @@ const MovieTextArea = ({
   onFocus
 }) => {
   return (
-    <div className="box-input">
+    <div className="box-input" sx={{border: '1px solid red'}}>
       <div className="border">
         <textarea
           className={classNames("input", {
