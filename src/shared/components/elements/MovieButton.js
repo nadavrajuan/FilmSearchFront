@@ -2,9 +2,14 @@ import "./movieButton.css";
 
 const MovieButton = (props) => {
   return (
-    <button class="button">
-      <div class="button__int">
-        <span class="button__span">{props.children}</span>
+    <button
+      className="button"
+      type={props.type}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
+      <div className="button__int">
+        <span className="button__span">{props.children}</span>
       </div>
     </button>
   );

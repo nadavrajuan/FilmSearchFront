@@ -1,11 +1,27 @@
 import "./movieTextArea.css";
 
-const MovieTextArea = () => {
+const MovieTextArea = ({
+  label,
+  name,
+  register,
+  validation,
+  errors,
+  maxRows,
+  minRows,
+  placeholder,
+}) => {
   return (
-    <div class="box-input">
-      <div class="border">
-        <textarea name="text" class="input" placeholder="Select for a film" />
+    <div className="box-input">
+      <div className="border">
+        <textarea
+          className="input"
+          name={name}
+          label={label}
+          placeholder={placeholder}
+          {...register(name, validation)}
+        />
       </div>
+      <p> {errors[name]?.message}</p>
     </div>
   );
 };
