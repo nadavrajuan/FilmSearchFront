@@ -12,10 +12,9 @@ const MovieSearch = () => {
   const [movies, setMovies] = useState([]);
   const [collapsed, setCollapsed] = useState(false);
   const [loading, setLoading] = useState(false);
-  //   const mainUrl = "https://movies-idnxr.ondigitalocean.app";
-  //   const apiUrl = "/api/closest_movies";
-  //   const token =
-  //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE3MDQzNjIzODF9.aEVnYnfTy7Qn0ZyBEXAJW5ArSW83X2j7gMOnoi2sWKw";
+  const mainUrl = "https://movies-idnxr.ondigitalocean.app";
+  const apiUrl = "/api/closest_movies";
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJqUEs2cEY0dHNtIn0.N817w0TyVaI-lYJu3araDo4gi45fT2ZdUJ6pJsAtcx4";
   const {
     register,
     handleSubmit,
@@ -29,31 +28,36 @@ const MovieSearch = () => {
     console.log(data);
     setLoading(true);
     setCollapsed(true);
-    setTimeout(() => {
-      setLoading(false);
-      setMovies(dummy_response.movies);
-    }, 1000);
+
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   setMovies(dummy_response.movies);
+    // }, 1000);
 
     reset();
     // WILL BE USED LATER after solving cors error:
-    // try {
-    //   const response = await fetch(
-    //     `${mainUrl}${apiUrl}?text=${encodeURIComponent(data.text)}`,
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     }
-    //   );
-    //   if (!response.ok) {
-    //     throw new Error(`HTTP error! Status: ${response.status}`);
-    //   }
-    //   console.log(response);
-    //   const responseData = await response.json();
-    //   console.log(responseData);
-    // } catch (error) {
-    //   console.error("Returned with error: ", error);
-    // }
+    try {
+      const response = await fetch(
+        `${mainUrl}${apiUrl}?text=${encodeURIComponent(data.text)}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      console.log(response);
+      const responseData = await response.json();
+
+      setMovies(responseData.movies);
+      setLoading(false);
+
+      console.log(responseData);
+    } catch (error) {
+      console.error("Returned with error: ", error);
+    }
   };
 
   return (
