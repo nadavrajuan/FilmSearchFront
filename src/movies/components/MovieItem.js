@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import MovieModal from "../../shared/components/elements/MovieModal";
+import MovieTag from "../../shared/components/elements/MovieTag";
 import "./movieItem.css";
 import "react-responsive-modal/styles.css";
 
@@ -84,10 +85,23 @@ const MovieItem = ({ movie }) => {
           </div>
           <div className="flex flex-col  gap-6 ">
             <div className="">
-              <h2 className="font-bold text-3xl text-green-600">{popularity}</h2>
+              <h2 className="font-bold text-3xl text-green-600">
+                {popularity}
+              </h2>
               <p>{vote_count} votes</p>
             </div>
-            {keywords && <p  className="text-justify">keywords: {keywords}</p>}
+            {keywords && (
+              <div>
+                <p>Keywords:</p>
+                <div className="flex flex-wrap gap-2">
+                  {keywords.split(" ").map((value) => {
+                    return <MovieTag text={value} />;
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* // <p  className="text-justify">keywords: {keywords} </p> */}
           </div>
         </div>
       </MovieModal>

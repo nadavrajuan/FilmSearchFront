@@ -101,7 +101,7 @@ export const dummy_response = {
             "budget": 0,
             "genres": "",
             "id": 633542,
-            "keywords": "short film",
+            "keywords": "sh f",
             "original_language": "pt",
             "overview": "In a forest clearing as she runs away from an invisible menace a little girl meets a strange-looking child.",
             "popularity": 0.6,
