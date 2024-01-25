@@ -4,7 +4,7 @@
   --input-width: 1095px;
 }
 
-.border {
+.border-input {
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(
@@ -42,7 +42,7 @@
 }
 
 .reduced {
-  height: 32px;
+  height: 49px;
 }
 
 .box-input::after,

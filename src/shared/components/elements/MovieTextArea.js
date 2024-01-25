@@ -12,8 +12,8 @@ const MovieTextArea = ({
   onFocus
 }) => {
   return (
-    <div className="box-input" sx={{border: '1px solid red'}}>
-      <div className="border">
+    <div className="box-input">
+      <div className="border-input">
         <textarea
           className={classNames("input", {
             normal: !collapsed,
