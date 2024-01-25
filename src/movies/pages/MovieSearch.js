@@ -22,7 +22,7 @@ const MovieSearch = () => {
     reset,
     formState: { errors, isValid },
   } = useForm({
-    mode: "onBlur",
+    mode: "onSubmit",
   });
 
   const onSubmit = async (data) => {
@@ -57,14 +57,14 @@ const MovieSearch = () => {
   };
 
   return (
-    <div className="movieSearch">
-      <h1>Reference Films Finder</h1>
-      <div className="movieSearchPanel">
+    <div className="flex flex-col justify-center gap-12 md:gap-24 items-center px-4 md:px-8 py-9 ">
+      <h1 className="text-3xl font-bold inline search-title">Reference Films Finder</h1>
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <div
-            className={classNames("movieSearchForm", {
-              col: !collapsed,
-              row: collapsed,
+            className={classNames("flex gap-4 md:gap-11 flex-col xs:items-center", {
+              'md:flex-col md:items-center': !collapsed,
+              'md:flex-row md:items-start': collapsed,
             })}
           >
             <MovieTextArea
@@ -84,8 +84,8 @@ const MovieSearch = () => {
             </MovieButton>
           </div>
         </form>
-      </div>
-      <div className="movieResult">
+
+      <div className="w-full">
         {loading ? <Loading /> : <MovieList movies={movies} />}
       </div>
     </div>

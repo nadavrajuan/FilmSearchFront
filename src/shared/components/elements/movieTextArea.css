@@ -1,8 +1,17 @@
 .box-input {
   position: relative;
   width: fit-content;
+  /* border: 3px dotted red; */
   --input-width: 1095px;
 }
+
+@media (max-width: 500px) {
+  .box-input {
+    --input-width: 320px; 
+  }
+}
+
+
 
 .border-input {
   display: flex;
@@ -35,6 +44,7 @@
   overflow: hidden;
   transition: height 0.5s ease-in-out;
   resize: none; 
+  /* border: 3px dotted green; */
 }
 
 .normal {
@@ -42,7 +52,7 @@
 }
 
 .reduced {
-  height: 49px;
+  height: 45px;
 }
 
 .box-input::after,
@@ -69,6 +79,6 @@
 }
 
 .input:focus::placeholder {
-  padding-left: calc(var(--input-width) - 180px);
+  padding-left: calc(var(--input-width) - 150px);
   transform: translateY(-50px);
 }

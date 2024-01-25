@@ -1,40 +1,7 @@
-.movieSearch {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4em;
-  align-items: center;
-  padding: 1em 2em;
-}
-
-.movieSearch h1 {
-  font-size: 32px;
-  font-weight: 700;
+h1.search-title  {
   background: linear-gradient(285.36deg, #f89b29 0%, #ff0f7b 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  display: inline;
 }
 
-.movieSearchForm {
-  display: flex;
-  gap: 2em;
-
-}
-
-.row {
-  flex-direction: row;
-  align-items: start;
-
-}
-
-.col {
-  flex-direction: column;
-  align-items: center;
-
-}
-
-.movieResult {
-  width: 100%;
-}
