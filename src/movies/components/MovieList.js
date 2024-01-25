@@ -6,9 +6,8 @@ const MovieList = ({ movies }) => {
     >
       {movies.map((movie) => (
         <MovieItem
-          key={movie.id}
-          title={movie.title}
-          overview={movie.overview}
+         movie={movie}
+
         />
       ))}
     </div>
