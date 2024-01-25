@@ -93,7 +93,7 @@ const MovieItem = ({ movie }) => {
             {keywords && (
               <div>
                 <p>Keywords:</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1">
                   {keywords.split(" ").map((value) => {
                     return <MovieTag text={value} />;
                   })}
