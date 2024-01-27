@@ -57,13 +57,13 @@ const MovieItem = ({ movie }) => {
   });
 
   return (
-    <div className="card-container cursor-pointer" onClick={openMovieModal}>
+    <div className="card-container cursor-pointer" onClick={openMovieModal} >
       <MovieModal
         open={showMovieModal}
         onCloseModal={(e) => closeMovieModal(e)}
       >
-        <div className="w-full h-full grid grid-cols-6 grid-rows-1 gap-4">
-          <div className=" col-span-3">
+        <div className="w-full h-full grid grid-cols-2 md:grid-cols-6 grid-rows-1 gap-4">
+          <div className="col-span-3 max-h-96">
             <img
               src={process.env.PUBLIC_URL + "/movie.jpg"}
               alt=""
@@ -91,17 +91,16 @@ const MovieItem = ({ movie }) => {
               <p>{vote_count} votes</p>
             </div>
             {keywords && (
-              <div>
+              <div className="">
                 <p>Keywords:</p>
                 <div className="flex flex-wrap gap-1">
-                  {keywords.split(" ").map((value) => {
-                    return <MovieTag text={value} />;
+                  {keywords.split(" ").map((value, i) => {
+                    return <MovieTag text={value} key={i} />;
                   })}
                 </div>
               </div>
             )}
-
-            {/* // <p  className="text-justify">keywords: {keywords} </p> */}
+            
           </div>
         </div>
       </MovieModal>
