@@ -6,7 +6,7 @@ export const dummy_response = {
             "budget": 0,
             "genres": "Romance",
             "id": 438212,
-            "keywords": "",
+            "keywords": "anime-short film taking pictures forest photographer",
             "original_language": "zh",
             "overview": "While taking pictures in a remote forest a young photographer encounters a beautiful mysterious girl. The photographer soon discovers that the girl has been missing and is being held captive in the forest.",
             "popularity": 0.6,

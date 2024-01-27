@@ -32,14 +32,11 @@ const MovieItem = ({ movie }) => {
     if (!showMovieModal) {
       setShowMovieModal(true);
     }
-
-    console.log("openMovieModal");
   };
 
   const closeMovieModal = (e) => {
     if (e) e.stopPropagation();
     setShowMovieModal(false);
-    console.log("closeMovieModal");
   };
 
   const contentClass = classNames({
@@ -57,13 +54,13 @@ const MovieItem = ({ movie }) => {
   });
 
   return (
-    <div className="card-container cursor-pointer" onClick={openMovieModal} >
+    <div className="card-container cursor-pointer" onClick={openMovieModal}>
       <MovieModal
         open={showMovieModal}
         onCloseModal={(e) => closeMovieModal(e)}
       >
         <div className="w-full h-full grid grid-cols-2 md:grid-cols-6 grid-rows-1 gap-4">
-          <div className="col-span-3 max-h-96">
+          <div className="col-span-6 md:col-span-3 max-h-96">
             <img
               src={process.env.PUBLIC_URL + "/movie.jpg"}
               alt=""
@@ -71,19 +68,20 @@ const MovieItem = ({ movie }) => {
             />
           </div>
 
-          <div className="flex flex-col gap-6  col-span-2">
+          <div className="flex flex-col gap-6 col-span-5 md:col-span-2 ">
             <h1 className="font-bold text-3xl">{`${title} (${year})`}</h1>
+
             <div>
               <h2 className="font-bold text-xl">About movie</h2>
               <p>Year of production: {year}</p>
               <p>Genres: {genres}</p>
-              <p>Production_companies: {production_companies}</p>
+              <p>Production companies: {production_companies}</p>
               <p>Budget: {budget}</p>
-              <p>Original_language: {original_language}</p>
+              <p>Original language: {original_language}</p>
             </div>
-            <p className="text-justify">Rewiew: {overview}</p>
+            <p className="text-justify  ">Rewiew: {overview}</p>
           </div>
-          <div className="flex flex-col  gap-6 ">
+          <div className="flex flex-col gap-6 ">
             <div className="">
               <h2 className="font-bold text-3xl text-green-600">
                 {popularity}
@@ -91,7 +89,7 @@ const MovieItem = ({ movie }) => {
               <p>{vote_count} votes</p>
             </div>
             {keywords && (
-              <div className="">
+              <div className="hidden md:block">
                 <p>Keywords:</p>
                 <div className="flex flex-wrap gap-1">
                   {keywords.split(" ").map((value, i) => {
@@ -100,8 +98,18 @@ const MovieItem = ({ movie }) => {
                 </div>
               </div>
             )}
-            
           </div>
+
+          {keywords && (
+            <div className="block md:hidden col-span-6">
+              <p>Keywords:</p>
+              <div className="flex flex-wrap gap-1">
+                {keywords.split(" ").map((value, i) => {
+                  return <MovieTag text={value} key={i} />;
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </MovieModal>
 
