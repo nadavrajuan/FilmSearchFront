@@ -9,7 +9,7 @@ export const dummy_response = {
             "keywords": "anime-short film taking pictures forest photographer",
             "original_language": "zh",
             "overview": "While taking pictures in a remote forest a young photographer encounters a beautiful mysterious girl. The photographer soon discovers that the girl has been missing and is being held captive in the forest.",
-            "popularity": 0.6,
+            "popularity": 1.5511,
             "poster_path": "/jLphVjWAInqwWmyCl57LOde2Dnq.jpg",
             "production_companies": "Sun's Motion Picture Co.",
             "recommendations": "nan",

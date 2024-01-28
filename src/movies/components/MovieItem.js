@@ -60,16 +60,16 @@ const MovieItem = ({ movie }) => {
         onCloseModal={(e) => closeMovieModal(e)}
       >
         <div className="w-full h-full grid grid-cols-2 md:grid-cols-6 grid-rows-1 gap-4">
-          <div className="col-span-6 md:col-span-3 max-h-96">
+          <div className="col-span-6 md:col-span-3 max-h-64 md:max-h-96 ">
             <img
               src={process.env.PUBLIC_URL + "/movie.jpg"}
               alt=""
-              className="h-full object-fill"
+              className="h-full object-fill w-full"
             />
           </div>
 
-          <div className="flex flex-col gap-6 col-span-5 md:col-span-2 ">
-            <h1 className="font-bold text-3xl">{`${title} (${year})`}</h1>
+          <div className="flex flex-col gap-6 col-span-6  md:col-span-2 ">
+            <h1 className="font-bold text-3xl text-center md:text-left">{`${title} (${year})`}</h1>
 
             <div>
               <h2 className="font-bold text-xl">About movie</h2>
@@ -84,7 +84,7 @@ const MovieItem = ({ movie }) => {
           <div className="flex flex-col gap-6 ">
             <div className="">
               <h2 className="font-bold text-3xl text-green-600">
-                {popularity}
+                {popularity.toFixed(1)}
               </h2>
               <p>{vote_count} votes</p>
             </div>
